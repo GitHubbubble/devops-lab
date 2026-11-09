@@ -47,6 +47,23 @@ jobs:
         run: |
           set -e
 
+          #WAIT AND SEE
+          if ! curl --silent--fail http://localhost:18080/healthz; then
+            echo "No good, lets wait"
+            sleep 5
+          fi
+ 
+          if ! curl --silent--fail http://localhost:18080/healthz; then
+            echo "Still no good.. wait some more..."
+            sleep 5
+          fi
+
+          if ! curl --silent--fail http://localhost:18080/healthz; then
+            iecho "Hmm, this doesn't look good..."
+            sleep 5
+          fi
+
+
           curl --fail http://localhost:18080/
           curl --fail http://localhost:18080/healthz
           curl --fail http://localhost:18080/readyz
