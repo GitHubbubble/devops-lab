@@ -27,7 +27,7 @@ jobs:
         run: python -m unittest -v 
 
       - name: Build Docker image
-        run: docker build -t devops-lab: ci .
+        run: docker build -t devops-lab:ci .
 
       - name: Run container
         run: |
