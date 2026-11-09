@@ -35,6 +35,13 @@ jobs:
             --name devops-lab-ci \
             -p 18080:8080 \
             devops-lab:ci
+       
+      - name: Inspect container
+        if: always()
+        run: |
+          docker ps -a
+          docker logs devops-lab-ci
+          docker inspect devops-lab-ci
 
       - name: Smoke test
         run: |
