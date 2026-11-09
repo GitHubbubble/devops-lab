@@ -55,5 +55,5 @@ jobs:
 
       - name: Cleanup
         if: always()
-        run docker rm -f devops-lab-ci || true
+        run: docker rm -f devops-lab-ci || true
 
