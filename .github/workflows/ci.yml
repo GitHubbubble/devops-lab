@@ -87,7 +87,7 @@ jobs:
           docker tag devops-lab:ci "$IMAGE_NAME:${GITHUB_SHA}"
 
       - name: Push image
-      - run: |
+        run: |
           IMAGE_NAME="ghcr.io/${GITHUB_REPOSITORY,,}"
           docker push "$IMAGE_NAME:${GITHUB_SHA}"
 
